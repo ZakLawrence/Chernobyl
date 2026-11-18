@@ -36,6 +36,7 @@ The equations that govern the abundance of iodine and xenon are as follows:
 \frac{dI}{dt} & = \text{production} - \text{désintégration} - \text{absorbtion}\\
 & = \gamma_i \Sigma_f \Phi(t) - \lambda_i I - \sigma_i I \Phi(t)\\
 \frac{dX}{dt} & = \gamma_x \Sigma_f \Phi(t) + \lambda_i I - \sigma_x X \Phi(t) - \lambda_x X
+\end{align*}
 ```
 - `$`λ_x` and `$`λ_i` are the disintegration constants
 - `$`γ_x` and `$`γ_i` are the production probabilities through interaction with the fuel
