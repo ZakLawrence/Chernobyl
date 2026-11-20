@@ -38,30 +38,30 @@ The equations that govern the abundance of iodine and xenon are as follows:
 \frac{dX}{dt} & = \gamma_x \Sigma_f \Phi(t) + \lambda_i I - \sigma_x X \Phi(t) - \lambda_x X
 \end{align*}
 ```
-- `$`λ_x` and `$`λ_i` are the disintegration constants
-- `$`γ_x` and `$`γ_i` are the production probabilities through interaction with the fuel
-- `$`σ_x` and `$`σ_i` are the cross-sections for neutron interactions (probability of absorbing a neutron)
-- `$`Φ` is the neutron flux
-- `$`Σ` is the total interaction probability with the fuel
+- $λ_x$ and $λ_i$ are the disintegration constants
+- $γ_x$ and $γ_i$ are the production probabilities through interaction with the fuel
+- $\sigma_x$ and `$\sigma_i$ are the cross-sections for neutron interactions (probability of absorbing a neutron)
+- $\Phi$ is the neutron flux
+- $\Sigma$ is the total interaction probability with the fuel
 
 You can find the values of these physical constants on the Wikipedia page [xenon poisoning](https://fr.wikipedia.org/wiki/Empoisonnement_au_x%C3%A9non).
 
-1. Use differential equation solvers to simulate the evolution of the values of `$I` and `$X` for a flux of `$3\times 10^{13}``. Observe the final stable values (after 2 days). Compare them to the expected values when the derivatives are set to 0.
-2. What happens if the initial amount of xenon is `$2\times 10^{15}`$?
+1. Use differential equation solvers to simulate the evolution of the values of $I$ and $X$ for a flux of $3\times 10^{13}$. Observe the final stable values (after 2 days). Compare them to the expected values when the derivatives are set to 0.
+2. What happens if the initial amount of xenon is $2\times 10^{15}$?
 3. What happens if, after 3 days, the flux suddenly drops to 0? Compare again to the expected values.
 4. We will simulate the neutron flux using the following equation:
 ```math
 \frac{d\Phi}{dt} = \frac{\Phi}{\tau} k \left( \Sigma_u - \Sigma_x - \Sigma_b \right)
 ```
 Where:
-- `$`\Sigma_u = 0.1355$` is the neutron cross-section with uranium
-- `$`\Sigma_x = \sigma_xX$` is the neutron cross-section with xenon, which depends on the amount of xenon
-- `$`\Sigma_b$` is the neutron cross-section with the slowing rods
-- `$`k` and `$`\tau$` are fixed constants at 3 and 1000 respectively.
+- $\Sigma_u = 0.1355$ is the neutron cross-section with uranium
+- $\Sigma_x = \sigma_xX$ is the neutron cross-section with xenon, which depends on the amount of xenon
+- $\Sigma_b$ is the neutron cross-section with the slowing rods
+- $k$ and $\tau$ are fixed constants at 3 and 1000 respectively.
 
-It is assumed that the rods are raised to the safety standard at `$`\Sigma_b = 0.1$`. They are pushed down to the maximum at `$`\Sigma_b = 0.2$`.
+It is assumed that the rods are raised to the safety standard at $\Sigma_b = 0.1$. They are pushed down to the maximum at $\Sigma_b = 0.2$.
 
-Write a function that guides the movement of the rods between these extremes. The system should be able to stabilize the flux at `$10^{15}$` with a starting flux of `$10^{10}$`.
+Write a function that guides the movement of the rods between these extremes. The system should be able to stabilize the flux at $10^{15}$ with a starting flux of $10^{10}$.
 
 5. When the flux is stabilized, wait for 24 hours and ask the system to reduce the flux to 1% of the normal flux. Observe the effect of poisoning.
 6. Use [tkinter](https://docs.python.org/3.10/library/tkinter.html) to program a graphical interface for managing the nuclear power plant. In a first version, display a graph of the flux value over the past 24 hours with a button to start a 100-hour simulation. You can advance the time by 1 hour per second.
